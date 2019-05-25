@@ -1,14 +1,16 @@
-var express = require('express');
-var mainController = require('../controllers/MainController');
-var router = express.Router();
-var app = require('../../ApplicationInstance');
+const express = require('express');
+const mainController = require('../controllers/MainController');
+const loginController = require('../controllers/LoginController');
+const router = express.Router();
+const app = require('../../ApplicationInstance');
 
 // ============================================ \\
 // =============== GET REQUESTS =============== \\
 
 router.route('/').get(mainController.home);
-
-
+router.route('/signup').get(mainController.signup);
+router.route('/login').get(mainController.login);
+router.route('/profile').get(mainController.profile);
 
 
 
@@ -22,7 +24,8 @@ router.route('/').get(mainController.home);
 
 // ============================================ \\
 // ============== POST REQUESTS =============== \\
-
+router.route('/login').post(loginController.login);
+router.route('/signup').post(loginController.signup);
 
 
 
